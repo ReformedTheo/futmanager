@@ -3,13 +3,19 @@
 from futmanager.models.team import Team
 from futmanager.models.player import Player
 from futmanager.models.match import Match
+from futmanager.models.roster import Roster
 from futmanager.services.simulate_match import SimulateMatch
+from futmanager.services.load_teams import LoadTeams
+from random import sample
+from typing import List
 
 def run():
-    t1 = Team("Cruzeiro", cruzeiro_players)
-    t2 = Team("Patético Mineiro", atletico_players)
-    game = Match(t1, t2)
+    team_load = LoadTeams()
+    teams: List[Team] = team_load.load()
+    home, away = sample(teams, 2)
+    game = Match(home.id, away.id)
     SimulateMatch().simulate(game)
+
 
 
 cruzeiro_players = [
@@ -27,15 +33,15 @@ cruzeiro_players = [
 ]
 
 atletico_players = [
-    Player("Everson", 85, "GOL"),
-    Player("Natanael", 82, "ZAG"),
-    Player("Lyanco", 30, "ZAG"),
-    Player("Junior Alonso", 82, "ZAG"),
-    Player("Caio Paulista", 80, "LAT"),
-    Player("Gabriel Menino", 84, "VOL"),
-    Player("Igor Gomes", 83, "MEI"),
-    Player("Gustavo Scarpa", 84, "MEI"),
-    Player("Dudu", 7, "ATA"),
-    Player("Rony", 85, "ATA"),
+    Player("Everson", 24, "GOL"),
+    Player("Natanael", 61, "ZAG"),
+    Player("Lyanco", 24, "ZAG"),
+    Player("Junior Alonso", 24, "ZAG"),
+    Player("Caio Paulista", 61, "LAT"),
+    Player("Gabriel Menino", 24, "VOL"),
+    Player("Igor Gomes", 61, "MEI"),
+    Player("Gustavo Scarpa", 24, "MEI"),
+    Player("Dudu", 1, "ATA"),
+    Player("Rony", 61, "ATA"),
     Player("Hulk", 24, "ATA")
 ]

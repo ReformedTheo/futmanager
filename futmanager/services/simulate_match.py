@@ -2,6 +2,9 @@
 import random
 from futmanager.models.match import Match
 from futmanager.models.event import Event
+from futmanager.models.team import Team
+from futmanager.controllers.team_controller import get_team_by_id
+
 import time
 
 class SimulateMatch:
@@ -12,11 +15,13 @@ class SimulateMatch:
         def goals_expected(attack_overall, defense_overall):
             diff = attack_overall - defense_overall
             base = max(0.8, 1 + diff / 25)
-            
             return max(0, random.gauss(base, self.variance))
+        
+        home_team = get_team_by_id(game.home_id)
+        away_team = get_team_by_id(game.away_id)
 
-        game.home_goals = round(goals_expected(game.home.attack_overall, game.away.defense_overall))
-        game.away_goals = round(goals_expected(game.away.attack_overall, game.home.defense_overall))
+        game.home_goals = round(goals_expected(home_team.attack_overall, away_team.defense_overall))
+        game.away_goals = round(goals_expected(away_team.attack_overall, away_team.defense_overall))
 
         # Gera a lista de eventos (goals, etc)
         game.events = Event.generate_events(game)
@@ -32,7 +37,5 @@ class SimulateMatch:
                     line += f" – {e.team.name}: {e.player.name} [{e.type.value}]{assist_txt}"
                     break
 
-            print(line)
-            time.sleep(1)
-        print(f"FIM DE JOGO! \n{game.home.name} {game.home_goals} X {game.away_goals} {game.away.name}")
+        print(f"FIM DE JOGO! \n{home_team.name} {game.home_goals} X {game.away_goals} {away_team.name}")
         return game

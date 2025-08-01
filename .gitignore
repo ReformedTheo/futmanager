@@ -1,0 +1,3 @@
+.venv/
+futmanager/__pycache__/
+futmanager/*/__pycache__/

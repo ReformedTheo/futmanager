@@ -1,0 +1,18 @@
+{
+  "id": 24,
+  "name": "Atlético Mineiro",
+  "players": [
+    { "name": "Everson",         "player_overall": 24, "position": "GOL" },
+    { "name": "Natanael",        "player_overall": 61, "position": "ZAG" },
+    { "name": "Lyanco",          "player_overall": 24, "position": "ZAG" },
+    { "name": "Junior Alonso",   "player_overall": 24, "position": "ZAG" },
+    { "name": "Caio Paulista",   "player_overall": 61, "position": "LAT" },
+    { "name": "Gabriel Menino",  "player_overall": 24, "position": "VOL" },
+    { "name": "Igor Gomes",      "player_overall": 61, "position": "MEI" },
+    { "name": "Gustavo Scarpa",  "player_overall": 24, "position": "MEI" },
+    { "name": "Dudu",            "player_overall": 1,  "position": "ATA" },
+    { "name": "Rony",            "player_overall": 61, "position": "ATA" },
+    { "name": "Hulk",            "player_overall": 24, "position": "ATA" }
+  ],
+  "shirt": "futmanager/assets/atletico.png"
+}

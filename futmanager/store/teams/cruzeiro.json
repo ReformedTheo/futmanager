@@ -1,0 +1,18 @@
+{
+  "id": 61,
+  "name": "Cruzeiro",
+  "players": [
+    { "name": "Cássio",           "player_overall": 88, "position": "GOL" },
+    { "name": "William",          "player_overall": 86, "position": "LAT" },
+    { "name": "Fabrício Bruno",   "player_overall": 87, "position": "ZAG" },
+    { "name": "Villalba",         "player_overall": 85, "position": "ZAG" },
+    { "name": "Kaiki",            "player_overall": 85, "position": "LAT" },
+    { "name": "Lucas Romero",     "player_overall": 86, "position": "VOL" },
+    { "name": "Lucas Silva",      "player_overall": 85, "position": "VOL" },
+    { "name": "Christian",        "player_overall": 84, "position": "MEI" },
+    { "name": "Matheus Pereira",  "player_overall": 92, "position": "MEI" },
+    { "name": "Wanderson",        "player_overall": 84, "position": "ATA" },
+    { "name": "Kaio Jorge",       "player_overall": 97, "position": "ATA" }
+  ],
+  "shirt": "futmanager/assets/cruzeiro.png"
+}

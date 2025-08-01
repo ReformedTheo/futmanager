@@ -11,6 +11,7 @@ from .team import Team
 
 if TYPE_CHECKING:
     from .match import Match
+from futmanager.controllers.team_controller import get_team_by_id
 
 class EventType(Enum):
     GOAL = "Goal"
@@ -34,17 +35,19 @@ class Event:
         # sorteia N minutos únicos de 1 a 90
         goal_minutes = random.sample(range(1, 91), total_goals)
         
-
+        home_team = get_team_by_id(game.home_id)
+        away_team = get_team_by_id(game.away_id)
+        
         events: List[Event] = []
         idx = 0
-        teams = [game.home, game.away]
+        teams = [home_team, away_team]
 
         # gols do time da casa
         for _ in range(game.home_goals):
             m = goal_minutes[idx]; idx += 1
-            scorer = random.choice(game.home.attack_players)
-            assist = random.choice([p for p in game.home.players if p != scorer] + [None])
-            events.append(cls(m, EventType.GOAL, scorer, game.home, assist))
+            scorer = random.choice(home_team.roster.attack_players)
+            assist = random.choice([p for p in home_team.roster.players if p != scorer] + [None])
+            events.append(cls(m, EventType.GOAL, scorer, home_team, assist))
 
         for _ in range(1,91):
             if _ not in goal_minutes and random.randint(1,10) % 2 != 0:
@@ -54,17 +57,17 @@ class Event:
                 team = random.choice(teams)
 
                 if event_type == EventType.DEFENSE:
-                    player = team.goalkeeper
-                else: player = random.choice(team.players)
+                    player = team.roster.goalkeeper
+                else: player = random.choice(team.roster.players)
                 events.append(cls(_, event_type, player, team))
                 
 
         # gols do visitante
         for _ in range(game.away_goals):
             m = goal_minutes[idx]; idx += 1
-            scorer = random.choice(game.away.attack_players)
-            assist = random.choice([p for p in game.away.players if p != scorer] + [None])
-            events.append(cls(m, EventType.GOAL, scorer, game.away, assist))
+            scorer = random.choice(away_team.roster.attack_players)
+            assist = random.choice([p for p in away_team.roster.players if p != scorer] + [None])
+            events.append(cls(m, EventType.GOAL, scorer, away_team, assist))
 
         # ordena por minuto
         events.sort(key=lambda e: e.minute)
