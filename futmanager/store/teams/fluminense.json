@@ -1,0 +1,18 @@
+{
+  "id": 7,
+  "name": "Fluminense",
+  "players": [
+    { "name": "Fábio",            "player_overall": 79, "position": "GOL" },
+    { "name": "Samuel Xavier",    "player_overall": 76, "position": "LAT" },
+    { "name": "Thiago Silva",     "player_overall": 81, "position": "ZAG" },
+    { "name": "Juan Freytes",     "player_overall": 71, "position": "ZAG" },
+    { "name": "Renê",             "player_overall": 74, "position": "LAT" },
+    { "name": "Jorge Andrão",     "player_overall": 79, "position": "VOL" },
+    { "name": "Matheus Martinelli","player_overall": 73, "position": "VOL" },
+    { "name": "A. Canobbio",      "player_overall": 78, "position": "MEI" },
+    { "name": "Everaldo",         "player_overall": 72, "position": "ATA" },
+    { "name": "Laure Santeiro",   "player_overall": 80, "position": "MEI" },
+    { "name": "Ignácio",          "player_overall": 75, "position": "ZAG" }
+  ],
+  "shirt": "futmanager/assets/fluminense.png"
+}

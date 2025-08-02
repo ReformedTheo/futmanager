@@ -1,0 +1,18 @@
+{
+  "id": 15,
+  "name": "RedBull Bragantino",
+  "players": [
+    { "name": "Cleiton",           "player_overall": 75, "position": "GOL" },
+    { "name": "J. Hurtado",        "player_overall": 72, "position": "LAT" },
+    { "name": "Pedro Henrique",    "player_overall": 75, "position": "ZAG" },
+    { "name": "Guzmán Rodríguez",  "player_overall": 70, "position": "ZAG" },
+    { "name": "Juninho Capixaba",  "player_overall": 74, "position": "LAT" },
+    { "name": "Gabriel",           "player_overall": 76, "position": "VOL" },
+    { "name": "Matheus Fernandes", "player_overall": 72, "position": "VOL" },
+    { "name": "Ramires",           "player_overall": 74, "position": "MEI" },
+    { "name": "Fernando",          "player_overall": 75, "position": "ATA" },
+    { "name": "Eduardo Sasha",     "player_overall": 77, "position": "ATA" },
+    { "name": "Isidro Pitta",      "player_overall": 77, "position": "ATA" }
+  ],
+  "shirt": "futmanager/assets/bragantino.png"
+}

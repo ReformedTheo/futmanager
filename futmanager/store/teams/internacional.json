@@ -1,0 +1,18 @@
+{
+  "id": 11,
+  "name": "Internacional",
+  "players": [
+    { "name": "Yann Sommer",          "player_overall": 87, "position": "GOL" },
+    { "name": "Federico Dimarco",     "player_overall": 85, "position": "LAT" },
+    { "name": "Alessandro Bastoni",   "player_overall": 87, "position": "ZAG" },
+    { "name": "Francesco Acerbi",     "player_overall": 84, "position": "ZAG" },
+    { "name": "Benjamin Pavard",      "player_overall": 84, "position": "ZAG" },
+    { "name": "Hakan Çalhanoğlu",     "player_overall": 86, "position": "VOL" },
+    { "name": "Nicolò Barella",       "player_overall": 87, "position": "MEI" },
+    { "name": "Davide Frattesi",      "player_overall": 82, "position": "MEI" },
+    { "name": "Piotr Zieliński",      "player_overall": 82, "position": "MEI" },
+    { "name": "Denzel Dumfries",      "player_overall": 83, "position": "LAT" },
+    { "name": "S. de Vrij",           "player_overall": 83, "position": "ZAG" }
+  ],
+  "shirt": "futmanager/assets/internacional.png"
+}

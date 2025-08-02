@@ -1,0 +1,18 @@
+{
+  "id": 17,
+  "name": "São Paulo",
+  "players": [
+    { "name": "Rafael",    "player_overall": 76, "position": "GOL" },
+    { "name": "Cédric",              "player_overall": 71, "position": "LAT" },
+    { "name": "Arboleda",            "player_overall": 76, "position": "ZAG" },
+    { "name": "André Franco",        "player_overall": 75, "position": "ZAG" },
+    { "name": "Wendell",             "player_overall": 77, "position": "LAT" },
+    { "name": "Marcos Antônio",      "player_overall": 78, "position": "VOL" },
+    { "name": "Pablo Maia",          "player_overall": 77, "position": "VOL" },
+    { "name": "Alisson",             "player_overall": 82, "position": "MEI" },
+    { "name": "Luciano",             "player_overall": 78, "position": "ATA" },
+    { "name": "G. Tapia",            "player_overall": 75, "position": "ATA" },
+    { "name": "Rafael 2",     "player_overall": 75, "position": "ATA" }
+  ],
+  "shirt": "futmanager/assets/saopaulo.png"
+}

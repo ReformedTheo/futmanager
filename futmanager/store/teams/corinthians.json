@@ -1,0 +1,18 @@
+{
+  "id": 4,
+  "name": "Corinthians",
+  "players": [
+    { "name": "Hugo Souza",        "player_overall": 76, "position": "GOL" },
+    { "name": "Matheuzinho",       "player_overall": 73, "position": "LAT" },
+    { "name": "André Ramalho",     "player_overall": 74, "position": "ZAG" },
+    { "name": "Gustavo Henrique",  "player_overall": 73, "position": "ZAG" },
+    { "name": "Matheus Bidu",      "player_overall": 73, "position": "LAT" },
+    { "name": "Raniele",           "player_overall": 75, "position": "VOL" },
+    { "name": "Maycon",            "player_overall": 76, "position": "VOL" },
+    { "name": "André Carrillo",    "player_overall": 77, "position": "MEI" },
+    { "name": "Memphis Depay",     "player_overall": 78, "position": "MEI" },
+    { "name": "Talles Magno",      "player_overall": 76, "position": "ATA" },
+    { "name": "Yuri Alberto",      "player_overall": 78, "position": "ATA" }
+  ],
+  "shirt": "futmanager/assets/corinthians.png"
+}

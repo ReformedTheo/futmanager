@@ -1,0 +1,18 @@
+{
+  "id": 6,
+  "name": "Flamengo",
+  "players": [
+    { "name": "Rossi",           "player_overall": 80, "position": "GOL" },
+    { "name": "Varela",          "player_overall": 70, "position": "LAT" },
+    { "name": "Danilo",   "player_overall": 75, "position": "ZAG" },
+    { "name": "Léo Ortiz",         "player_overall": 79, "position": "ZAG" },
+    { "name": "Leo Pereira",            "player_overall": 73, "position": "LAT" },
+    { "name": "Jorginho",     "player_overall": 80, "position": "VOL" },
+    { "name": "Evertton Araújo",      "player_overall": 75, "position": "VOL" },
+    { "name": "De Arrascaeta",        "player_overall": 84, "position": "MEI" },
+    { "name": "Pedro",  "player_overall": 75, "position": "MEI" },
+    { "name": "Luiz Araújo",        "player_overall": 75, "position": "ATA" },
+    { "name": "Gonzalo Plata",       "player_overall": 73, "position": "ATA" }
+  ],
+  "shirt": "futmanager/assets/cruzeiro.png"
+}

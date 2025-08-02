@@ -1,0 +1,18 @@
+{
+  "id": 19,
+  "name": "Vasco da Gama",
+  "players": [
+    { "name": "Léo Jardim",        "player_overall": 79, "position": "GOL" },
+    { "name": "Paulo Henrique",    "player_overall": 74, "position": "LD" },
+    { "name": "João Victor",       "player_overall": 77, "position": "ZAG" },
+    { "name": "Mauricio Lemos",    "player_overall": 77, "position": "ZAG" },
+    { "name": "Lucas Piton",       "player_overall": 74, "position": "LE" },
+    { "name": "Tchê Tchê",          "player_overall": 74, "position": "VOL" },
+    { "name": "Hugo Moura",        "player_overall": 74, "position": "VOL" },
+    { "name": "Nuno Moreira",      "player_overall": 74, "position": "ATA" },
+    { "name": "David",             "player_overall": 74, "position": "ATA" },
+    { "name": "Loide Augusto",     "player_overall": 74, "position": "ATA" },
+    { "name": "Pablo Vegetti",     "player_overall": 77, "position": "ATA" }
+  ],
+  "shirt": "futmanager/assets/vasco.png"
+}

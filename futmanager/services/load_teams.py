@@ -27,5 +27,3 @@ class LoadTeams:
                 team = Team(data["name"], roster, data["id"])
                 teams.append(team)    
         return teams
-    
-    

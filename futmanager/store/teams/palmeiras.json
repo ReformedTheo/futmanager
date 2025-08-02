@@ -1,0 +1,18 @@
+{
+  "id": 14,
+  "name": "Palmeiras",
+  "players": [
+    { "name": "Weverton",          "player_overall": 80, "position": "GOL" },
+    { "name": "Agustín Giay",      "player_overall": 74, "position": "LAT" },
+    { "name": "Gustavo Gómez",     "player_overall": 81, "position": "ZAG" },
+    { "name": "Murilo",            "player_overall": 78, "position": "ZAG" },
+    { "name": "Joaquín Piquerez",  "player_overall": 79, "position": "LAT" },
+    { "name": "Aníbal Moreno",     "player_overall": 77, "position": "VOL" },
+    { "name": "Richard Ríos",      "player_overall": 72, "position": "VOL" },
+    { "name": "Raphael Veiga",     "player_overall": 81, "position": "MEI" },
+    { "name": "Estêvão",           "player_overall": 80, "position": "ATA" },
+    { "name": "Facundo Torres",    "player_overall": 77, "position": "ATA" },
+    { "name": "Vitor Roque",       "player_overall": 78, "position": "ATA" }
+  ],
+  "shirt": "futmanager/assets/palmeiras.png"
+}

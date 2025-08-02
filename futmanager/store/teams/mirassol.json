@@ -1,0 +1,18 @@
+{
+  "id": 13,
+  "name": "Mirassol",
+  "players": [
+    { "name": "Walter",        "player_overall": 76, "position": "GOL" },
+    { "name": "Daniel Borges", "player_overall": 73, "position": "LAT" },
+    { "name": "Luiz Otávio",   "player_overall": 74, "position": "ZAG" },
+    { "name": "João Victor",   "player_overall": 70, "position": "ZAG" },
+    { "name": "Lucas Ramon",   "player_overall": 72, "position": "LAT" },
+    { "name": "Danielzinho",   "player_overall": 75, "position": "VOL" },
+    { "name": "Gabriel",       "player_overall": 71, "position": "MEI" },
+    { "name": "Chico Kim",     "player_overall": 68, "position": "MEI" },
+    { "name": "Negueba",       "player_overall": 72, "position": "ATA" },
+    { "name": "Da Costa",      "player_overall": 73, "position": "ATA" },
+    { "name": "Iury Castilho", "player_overall": 71, "position": "ATA" }
+  ],
+  "shirt": "futmanager/assets/mirassol.png"
+}

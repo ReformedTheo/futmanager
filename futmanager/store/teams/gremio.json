@@ -1,0 +1,18 @@
+{
+  "id": 10,
+  "name": "Grêmio",
+  "players": [
+    { "name": "Tiago Volpi",        "player_overall": 74, "position": "GOL" },
+    { "name": "João Lucas",         "player_overall": 72, "position": "LAT" },
+    { "name": "Wálter Kannemann",   "player_overall": 76, "position": "ZAG" },
+    { "name": "Wagner Leonardo",    "player_overall": 74, "position": "ZAG" },
+    { "name": "Mariono (Marlon)",   "player_overall": 74, "position": "LAT" },
+    { "name": "Marcelo Villasanti", "player_overall": 77, "position": "VOL" },
+    { "name": "Gustavo Cuéllar",    "player_overall": 74, "position": "VOL" },
+    { "name": "Cristian Olivera",   "player_overall": 77, "position": "ATA" },
+    { "name": "Martin Braithwaite", "player_overall": 77, "position": "ATA" },
+    { "name": "Rodrigo Ely",        "player_overall": 75, "position": "ZAG" },
+    { "name": "Edenílson",          "player_overall": 72, "position": "MEI" }
+  ],
+  "shirt": "futmanager/assets/gremio.png"
+}

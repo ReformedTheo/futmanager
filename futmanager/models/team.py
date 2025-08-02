@@ -42,3 +42,4 @@ class Team:
         filename = self.short_name
         return os.path.join("futmanager", "assets", f"{filename}.png")
     
+    

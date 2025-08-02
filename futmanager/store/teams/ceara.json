@@ -1,0 +1,18 @@
+{
+  "id": 3,
+  "name": "Ceará",
+  "players": [
+    { "name": "Bruno Ferreira",   "player_overall": 74, "position": "GOL" },
+    { "name": "Fabiano Souza",    "player_overall": 76, "position": "LAT" },
+    { "name": "Marllon",          "player_overall": 77, "position": "ZAG" },
+    { "name": "Willian Machado",  "player_overall": 64, "position": "ZAG" },
+    { "name": "Matheus Bahia",    "player_overall": 74, "position": "LAT" },
+    { "name": "Dieguinho",        "player_overall": 79, "position": "VOL" },
+    { "name": "Fernando Sobral",  "player_overall": 77, "position": "VOL" },
+    { "name": "L. Mugni",         "player_overall": 75, "position": "MEI" },
+    { "name": "Fernandinho",      "player_overall": 74, "position": "ATA" },
+    { "name": "Pedro Raul",       "player_overall": 75, "position": "ATA" },
+    { "name": "A. Galeano",       "player_overall": 71, "position": "ATA" }
+  ],
+  "shirt": "futmanager/assets/ceara.png"
+}

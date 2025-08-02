@@ -1,0 +1,18 @@
+{
+  "id": 1,
+  "name": "Bahia",
+  "players": [
+    { "name": "Marcos Felipe",   "player_overall": 75, "position": "GOL" },
+    { "name": "Gilberto",        "player_overall": 78, "position": "LAT" },
+    { "name": "Santiago Mingo",  "player_overall": 78, "position": "ZAG" },
+    { "name": "David Duarte",    "player_overall": 74, "position": "ZAG" },
+    { "name": "Luciano Juba",    "player_overall": 78, "position": "LAT" },
+    { "name": "Jean Lucas",      "player_overall": 76, "position": "VOL" },
+    { "name": "Caio Alexandre",  "player_overall": 76, "position": "VOL" },
+    { "name": "Erick Pulga",     "player_overall": 75, "position": "ATA" },
+    { "name": "Willian José",    "player_overall": 74, "position": "ATA" },
+    { "name": "Kayky",           "player_overall": 69, "position": "ATA" },
+    { "name": "Ademir",          "player_overall": 73, "position": "ATA" }
+  ],
+  "shirt": "futmanager/assets/bahia.png"
+}

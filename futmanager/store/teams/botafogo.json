@@ -1,0 +1,18 @@
+{
+  "id": 2,
+  "name": "Botafogo",
+  "players": [
+    { "name": "John",             "player_overall": 76, "position": "GOL" },
+    { "name": "Vitinho",          "player_overall": 74, "position": "LAT" },
+    { "name": "Alex Telles",      "player_overall": 80, "position": "LAT" },
+    { "name": "A. Barboza",       "player_overall": 80, "position": "ZAG" },
+    { "name": "Vieirundinho",     "player_overall": 78, "position": "ZAG" },
+    { "name": "Marlon Freitas",   "player_overall": 78, "position": "VOL" },
+    { "name": "Gregore",          "player_overall": 77, "position": "VOL" },
+    { "name": "Artur",            "player_overall": 78, "position": "MEI" },
+    { "name": "Evander",          "player_overall": 81, "position": "MEI" },
+    { "name": "J. Savarino",      "player_overall": 80, "position": "ATA" },
+    { "name": "Arthur Cabral",    "player_overall": 79, "position": "ATA" }
+  ],
+  "shirt": "futmanager/assets/botafogo.png"
+}

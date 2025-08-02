@@ -1,0 +1,11 @@
+{
+  "id": 1,
+  "name": "Campeonato Mineiro",
+  
+  "teams_id": ["61","24"],
+
+  "matches": [
+      { "home_id": 61, "away_id": 24 },
+      { "home_id": 24, "away_id": 61 }
+    ]
+}

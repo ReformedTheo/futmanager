@@ -2,7 +2,6 @@
 import random
 from futmanager.models.match import Match
 from futmanager.models.event import Event
-from futmanager.models.team import Team
 from futmanager.controllers.team_controller import get_team_by_id
 
 import time
@@ -36,6 +35,6 @@ class SimulateMatch:
                     assist_txt = f" (assist: {e.assist.name})" if e.assist else ""
                     line += f" – {e.team.name}: {e.player.name} [{e.type.value}]{assist_txt}"
                     break
-
+        
         print(f"FIM DE JOGO! \n{home_team.name} {game.home_goals} X {game.away_goals} {away_team.name}")
         return game

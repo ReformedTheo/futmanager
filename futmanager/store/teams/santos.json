@@ -1,0 +1,18 @@
+{
+  "id": 16,
+  "name": "Santos",
+  "players": [
+    { "name": "Gabriel Brazão",   "player_overall": 75, "position": "GOL" },
+    { "name": "Aderlan",          "player_overall": 73, "position": "LAT" },
+    { "name": "Zé Ivaldo",        "player_overall": 71, "position": "ZAG" },
+    { "name": "Luan Peres",       "player_overall": 73, "position": "ZAG" },
+    { "name": "Gonzalo Escobar",  "player_overall": 70, "position": "LAT" },
+    { "name": "Diego Pituca",     "player_overall": 76, "position": "VOL" },
+    { "name": "Giuliano",          "player_overall": 74, "position": "MEI" },
+    { "name": "Benjamín Rollheiser","player_overall": 74, "position": "MEI" },
+    { "name": "Guilherme",        "player_overall": 74, "position": "ATA" },
+    { "name": "Júlio Furch",      "player_overall": 73, "position": "ATA" },
+    { "name": "Neymar Jr.",          "player_overall": 93, "position": "ATA" }
+  ],
+  "shirt": "futmanager/assets/santos.png"
+}

@@ -1,0 +1,18 @@
+{
+  "id": 12,
+  "name": "Juventude",
+  "players": [
+    { "name": "Marcão",           "player_overall": 72, "position": "GOL" },
+    { "name": "Ewerthon",         "player_overall": 74, "position": "LD" },
+    { "name": "Adriano Martins",  "player_overall": 77, "position": "ZAG" },
+    { "name": "Abner",            "player_overall": 72, "position": "ZAG" },
+    { "name": "Alan Ruschel",     "player_overall": 75, "position": "LAT" },
+    { "name": "Daniel Giraldo",   "player_overall": 76, "position": "VOL" },
+    { "name": "Jádson",           "player_overall": 77, "position": "VOL" },
+    { "name": "Mandaca",          "player_overall": 73, "position": "MEI" },
+    { "name": "E. Batalla",       "player_overall": 75, "position": "MEI" },
+    { "name": "Gilberto",         "player_overall": 76, "position": "ATA" },
+    { "name": "Gabriel Verón",    "player_overall": 72, "position": "ATA" }
+  ],
+  "shirt": "futmanager/assets/juventude.png"
+}

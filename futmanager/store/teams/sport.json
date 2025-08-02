@@ -1,0 +1,18 @@
+{
+  "id": 18,
+  "name": "Sport Recife",
+  "players": [
+    { "name": "Caíque França",    "player_overall": 72, "position": "GOL" },
+    { "name": "Hereda",           "player_overall": 69, "position": "LD" },
+    { "name": "Rafael Thyere",    "player_overall": 72, "position": "ZAG" },
+    { "name": "João Silva",       "player_overall": 69, "position": "ZAG" },
+    { "name": "Igor Cariús",      "player_overall": 68, "position": "LE" },
+    { "name": "Rivera",           "player_overall": 73, "position": "VOL" },
+    { "name": "R. Atencio",       "player_overall": 71, "position": "MEI" },
+    { "name": "Sérgio Oliveira",  "player_overall": 73, "position": "MEI" },
+    { "name": "Romarinho",        "player_overall": 69, "position": "ATA" },
+    { "name": "C. Rivera",        "player_overall": 73, "position": "VOL" },
+    { "name": "Sergio Oliveira",  "player_overall": 73, "position": "MEI" }
+  ],
+  "shirt": "futmanager/assets/sportrecife.png"
+}

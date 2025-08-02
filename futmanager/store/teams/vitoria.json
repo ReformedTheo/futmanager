@@ -1,0 +1,18 @@
+{
+  "id": 20,
+  "name": "Vitória",
+  "players": [
+    { "name": "Lucas Arcanjo",  "player_overall": 76, "position": "GOL" },
+    { "name": "R. Cáceres",      "player_overall": 72, "position": "LAT" },
+    { "name": "Lucas Halter",   "player_overall": 75, "position": "ZAG" },
+    { "name": "Zé Marcos",      "player_overall": 73, "position": "ZAG" },
+    { "name": "Maykon Jesus",   "player_overall": 65, "position": "LAT" },
+    { "name": "Tiago Silva",    "player_overall": 76, "position": "VOL" },
+    { "name": "Tomás Händel",   "player_overall": 74, "position": "VOL" },
+    { "name": "Samu",           "player_overall": 75, "position": "MEI" },
+    { "name": "Miguel Maga",    "player_overall": 70, "position": "LAT" },
+    { "name": "T. Borevković",  "player_overall": 73, "position": "ZAG" },
+    { "name": "Bruno Varela",   "player_overall": 75, "position": "GOL" }
+  ],
+  "shirt": "futmanager/assets/vitoria.png"
+}

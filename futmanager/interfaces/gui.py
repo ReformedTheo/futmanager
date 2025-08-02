@@ -1,116 +1,156 @@
 import pygame
 import sys
 from pygame import Surface
-from futmanager.services.load_teams import LoadTeams
-from futmanager.models.team import Team
-from futmanager.models.match import Match
-from futmanager.models.roster import Roster
+from typing import List, Tuple, Optional, Any
+from datetime import datetime, timedelta
+from itertools import permutations
+
+from futmanager.services.load_teams     import LoadTeams
 from futmanager.services.simulate_match import SimulateMatch
+from futmanager.models.team             import Team
+from futmanager.models.match            import Match
+from futmanager.models.board            import Board
+
+BUTTON_COLOR    = (50, 150, 50)
+BUTTON_HOVER    = (70, 170, 70)
+TEXT_COLOR      = (255,255,255)
+BG_PANEL        = (30, 30, 30)
+
+def _schedule_rounds(teams: List[Team]) -> List[List[Tuple[Team, Team]]]:
+    # gera ida e volta via permutations (já dá ambos sentidos)
+    pool = sorted([(h,a) for h,a in permutations(teams,2)], key=lambda ha:(ha[0].id,ha[1].id))
+    rounds = []
+    while pool:
+        this_round, used = [], set()
+        for h,a in pool:
+            if h.id not in used and a.id not in used:
+                this_round.append((h,a))
+                used |= {h.id,a.id}
+        for m in this_round:
+            pool.remove(m)
+        rounds.append(this_round)
+    return rounds
 
 def run_gui():
     pygame.init()
-
-    team_loader = LoadTeams()
-    teams = team_loader.load()
-
-    home_image: Surface
-    away_image: Surface
-    home_roster: Roster
-    away_roster: Roster
-
-    
-
-    for team in teams:
-        if team.id == 61:
-            home_roster = team.roster
-            home_image = pygame.image.load(team.img_path)
-        elif team.id == 24:
-            away_roster = team.roster
-            away_image = pygame.image.load(team.img_path)
-
-    # --- Dimensões ---
-    FIELD_W, FIELD_H = 800, 600
-    LOG_W = 300
-    WIN_W = FIELD_W + LOG_W
-    WIN_H = FIELD_H
-
-    screen = pygame.display.set_mode((WIN_W, WIN_H))
+    screen = pygame.display.set_mode((1100, 600))
+    pygame.display.set_caption("Campeonato")
     clock = pygame.time.Clock()
-    pygame.display.set_caption("Simulação de Jogo")
-
-    # --- Carrega imagens ---
-    campo_img     = pygame.image.load("futmanager/assets/campo.png")
-
-    campo_img    = pygame.transform.scale(campo_img, (FIELD_W, FIELD_H))
-    home_image = pygame.transform.scale(home_image, (40, 40))
-    away_image  = pygame.transform.scale(away_image, (40, 40))
-
-
-
-    # --- Posições simples em linha ---
-    def linspace(y, n, width):
-        step = width // (n + 1)
-        return [(step*(i+1), y) for i in range(n)]
-
-    pos_cru = linspace(FIELD_H - 80, len(home_roster.players), FIELD_W)
-    pos_pat = linspace(80,        len(away_roster.players), FIELD_W)
-
-    # --- Time e partida ---
-    t1_roster = Roster(home_roster.players, 61)
-    t2_roster = Roster(away_roster.players, 24)
-    t1 = Team("Cruzeiro", t1_roster, 61)
-    t2 = Team("Patético Mineiro", t2_roster, 24)
-    game = Match(t1.id, t2.id)
-    simulator = SimulateMatch()
-
-    # --- Fonte para o painel de eventos ---
     font = pygame.font.SysFont(None, 24)
-    events_log = []           # armazena strings de eventos
-    simulation = None         # será nosso gerador de passos
-    last_tick_ms = 0          # para cronometrar 1s entre minutos
+
+    # carrega times e imagens
+    teams = LoadTeams().load()
+    team_images = {
+        t.id: pygame.transform.scale(
+            pygame.image.load(t.img_path), (40,40)
+        )
+        for t in teams
+    }
+
+    # calendário e estado
+    rounds = _schedule_rounds(teams)
+    total_rounds = len(rounds)
+    current_round = 0
+    board = Board([t.id for t in teams], board_id=1)
+
+    # time selecionado (começa no 1º da lista)
+    selected_idx = 0
+
+    # simulação do jogo do time selecionado
+    sim = SimulateMatch()
+    simulation: Optional[Any] = None    # generator
+    events_log: List[str] = []
+    last_tick = 0
+
+    # botão “Jogar Rodada”
+    btn_rect = pygame.Rect(900, 520, 180, 50)
 
     running = True
     while running:
         now = pygame.time.get_ticks()
+        mx,my = pygame.mouse.get_pos()
 
-        for e in pygame.event.get():
-            if e.type == pygame.QUIT:
+        for ev in pygame.event.get():
+            if ev.type == pygame.QUIT:
                 running = False
-            elif e.type == pygame.KEYDOWN and e.key == pygame.K_SPACE:
-                # inicia/ reinicia simulação como gerador
-                simulator.simulate(game)   # gera gols e eventos
-                simulation = _stepper(game) 
 
-                events_log.clear()
-                last_tick_ms = now
+            # clique no botão
+            if ev.type == pygame.MOUSEBUTTONDOWN and ev.button==1:
+                if btn_rect.collidepoint(mx,my) and simulation is None:
+                    # dispara simulação da próxima rodada
+                    if current_round < total_rounds:
+                        # simula TODOS os jogos da rodada
+                        for h,a in rounds[current_round]:
+                            m = Match(
+                                match_id = current_round,
+                                home_id  = h.id,
+                                away_id  = a.id,
+                                match_day= datetime(2025,1,1)+timedelta(days=current_round)
+                            )
+                            sim.simulate(m)
+                            board.matches.append(m)
+                        # prepara generator só para o jogo do time escolhido
+                        h,a = next(filter(
+                            lambda pa: pa[0].id==teams[selected_idx].id or pa[1].id==teams[selected_idx].id,
+                            rounds[current_round]
+                        ))
+                        selected_match = Match(
+                            match_id = current_round,
+                            home_id  = h.id,
+                            away_id  = a.id,
+                            match_day= datetime(2025,1,1)+timedelta(days=current_round)
+                        )
+                        sim.simulate(selected_match)
+                        simulation = _stepper(selected_match)
+                        events_log.clear()
+                        last_tick = now
+                        current_round += 1
 
-        # --- Atualiza simulação a cada 1 segundo ---
-        if simulation and now - last_tick_ms >= 1000:
-            last_tick_ms = now
+            # ciclo de teclas: esquerda/direita para mudar seleção
+            if ev.type==pygame.KEYDOWN:
+                if ev.key==pygame.K_LEFT:
+                    selected_idx = (selected_idx-1) % len(teams)
+                elif ev.key==pygame.K_RIGHT:
+                    selected_idx = (selected_idx+1) % len(teams)
+
+        # avança o generator a cada 1s
+        if simulation and now-last_tick>1000:
+            last_tick = now
             try:
-                minute, text = next(simulation)
-                
-                events_log.append(text)
+                minute,txt = next(simulation)
+                events_log.append(txt)
             except StopIteration:
-                simulation = None  # acabou
+                simulation = None
 
-        # --- Desenha fundo e jogadores ---
-        screen.blit(campo_img, (0, 0))
-        for idx, _ in enumerate(home_roster.players):
-            screen.blit(home_image, pos_cru[idx])
-        for idx, _ in enumerate(away_roster.players):
-            screen.blit(away_image, pos_pat[idx])
+        # -- desenho --
 
-        # --- Desenha painel de eventos à direita ---
-        panel_rect = pygame.Rect(FIELD_W, 0, LOG_W, WIN_H)
-        pygame.draw.rect(screen, (20, 20, 20), panel_rect)
+        screen.fill((0,0,0))
+        # 1) painel de seleção de time
+        for i,t in enumerate(teams):
+            x = 10 + i*120
+            clr = (200,200,50) if i==selected_idx else (100,100,100)
+            pygame.draw.rect(screen, clr, (x,10,110,30))
+            screen.blit(font.render(t.name, True, (0,0,0)), (x+5,15))
 
-        # exibe as últimas N linhas que cabem
-        line_h = font.get_linesize()
-        max_lines = WIN_H // line_h
-        for i, line in enumerate(events_log[-max_lines:]):
-            txt_surf = font.render(line, True, (255, 255, 255))
-            screen.blit(txt_surf, (FIELD_W + 10, 10 + i * line_h))
+        # 2) botão Jogar Rodada
+        hov = BUTTON_HOVER if btn_rect.collidepoint(mx,my) else BUTTON_COLOR
+        pygame.draw.rect(screen, hov, btn_rect)
+        screen.blit(font.render("Jogar Rodada", True, TEXT_COLOR), (btn_rect.x+20, btn_rect.y+15))
+
+        # 3) tabela de classificação
+        lines = ["Time          J  V  E  D  GP  GC  SG  P"]
+        for e in board.compute_standings():
+            pre = "> " if e.team.id==teams[selected_idx].id else "  "
+            lines.append(pre + f"{e.team.name[:12]:12s} {e.played:2d} {e.wins:2d} {e.draws:2d} {e.losses:2d}"
+                                 + f" {e.goals_for:2d} {e.goals_against:2d} {e.goal_diff:3d} {e.points:3d}")
+        # desenha
+        for i,line in enumerate(lines):
+            screen.blit(font.render(line, True, TEXT_COLOR), (820, 60 + i*20))
+
+        # 4) área de eventos (se tiver)
+        pygame.draw.rect(screen, BG_PANEL, (10, 400, 780, 180))
+        for i,txt in enumerate(events_log[-8:]):
+            screen.blit(font.render(txt, True, TEXT_COLOR), (15, 405 + i*20))
 
         pygame.display.flip()
         clock.tick(60)
@@ -119,11 +159,6 @@ def run_gui():
     sys.exit()
 
 def _stepper(game: Match):
-    """
-    Transforma sua simulate() num gerador de (minuto, texto),
-    sem pausas, para ser sacado a cada tick de tempo.
-    """
-    # já gerou game.events dentro de simulate()
     for minute in range(90):
         line = f"{minute}'"
         for e in game.events:
